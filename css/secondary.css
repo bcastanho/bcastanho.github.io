@@ -29,10 +29,17 @@ h2 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
+
+h3 {
+    font-size: 1.2em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+
 p {
-    font-size: 1em;
+    font-size: 0.8em;
     font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-    line-height: 1em;
+    line-height: 0.8em;
     color: #333;
 }
 footer {
