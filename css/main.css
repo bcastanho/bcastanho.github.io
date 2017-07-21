@@ -61,4 +61,5 @@ p {
 img{
 border-radius: 100%;
   max-width: 90%;
+  max-heigth: 350px;
 }
