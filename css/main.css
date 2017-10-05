@@ -37,6 +37,19 @@ a:hover {
   width: 50%;
 }
 
+.footlong{
+font-family: Quicksand, 'Helvetica', 'Sans-Serif';
+    padding: 0px;
+  font-size: 1.1em;
+    list-style: none;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  display: inline;
+    margin-right: 20px;
+  bottom: 0;
+}
+
+
 h1 {
   color: azure;
   font-family: Quicksand;
