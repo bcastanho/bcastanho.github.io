@@ -2,8 +2,7 @@ body {
   background: #141E30;
   margin: 5% auto;
   width: 80%;
-  padding-bottom:1.3em;
-}
+  }
 
 
 nav ul, footer ul {
@@ -37,15 +36,18 @@ a:hover {
   width: 50%;
 }
 
-.footlong ul li{
+.footlong ul {
 font-family: Quicksand, 'Helvetica', 'Sans-Serif';
     padding: 0px;
   font-size: 1.1em;
     list-style: none;
     font-weight: bold;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.footlong ul li{
   display: inline;
-    margin-right: 20px;
+  margin-right: 20px;
   bottom: 0;
 }
 
