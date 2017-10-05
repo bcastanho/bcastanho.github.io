@@ -2,6 +2,7 @@ body {
   background: #141E30;
   margin: 5% auto;
   width: 80%;
+  padding-bottom:1.3em;
 }
 
 
@@ -16,6 +17,10 @@ nav ul, footer ul {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
+}
+
+.content{
+   padding-top: 64px;
 }
 
 footer {
