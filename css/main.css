@@ -19,10 +19,6 @@ nav ul li, footer ul li {
     margin-right: 20px;
 }
 
-.content{
-   padding-top: 64px;
-}
-
 footer {
   position: absolute;
   bottom: 0;
@@ -56,6 +52,7 @@ p {
 .articles {
   font-family: Quicksand;
   color: Azure;
+  padding-top: 64px;
 }
 
 .mypic {
