@@ -69,13 +69,16 @@ p {
   color: Azure;
 }
 
-.mypic {
+img {
   border-radius: 100%;
-  float: left;
-  width: 50%;
   max-width: 90%;
   max-height: 300px;
 }
+
+.mypic {
+  float: left;
+  width: 50%;
+  }
 
 
   .slider-holder
