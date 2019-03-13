@@ -58,6 +58,11 @@ h1 {
   font-size: 2em;
 }
 
+h2 {
+  color: azure;
+  font-family: Quicksand;
+}
+
 p {
   color: GhostWhite;
   font-family: Quicksand;
