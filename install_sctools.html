@@ -361,12 +361,13 @@ display: none;
 has a strong dependency on <code>LowRankQP</code>, which was archived
 that day. This means that <code>Synth</code>, along with packages that
 rely on it such as <code>SCtools</code>, <code>tidysynth</code>, and
-<code>microsynth</code>.</p>
+<code>microsynth</code>, cannot just be installed from CRAN anymore with
+<code>install_packages</code>.</p>
 <p>Since there’s currently no other way of running the Synthetic Control
 Model in R without <code>Synth</code>, to install it from the archive
 you need to follow these steps:</p>
-<div id="for-mac-users" class="section level2">
-<h2>For Mac users</h2>
+<div id="first-step-for-mac-users" class="section level2">
+<h2>First step for Mac users</h2>
 <p>If you’re using Mac, you might run into an error if you don’t first
 install gfortran 6.1 manually from this link. If you’re not a Mac user,
 skip to next step:</p>
@@ -398,8 +399,8 @@ download.file(url = url, destfile = pkgFile)</code></pre>
 </div>
 <div id="installing-sctools" class="section level2">
 <h2>Installing SCtools</h2>
-<pre class="r"><code>Install SCtools from github:
-library(devtools)
+<p>Install SCtools from github:</p>
+<pre class="r"><code>library(devtools)
 install_github(&#39;bcastanho/SCtools&#39;, repos =NULL, force = T)</code></pre>
 </div>
 
