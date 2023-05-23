@@ -11,7 +11,7 @@
 
 <meta name="author" content="Bruno Castanho Silva and Mario Fiorini" />
 
-<meta name="date" content="2023-05-22" />
+<meta name="date" content="2023-05-23" />
 
 <title>Installing Synth and SCtools</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">Installing Synth and SCtools</h1>
 <h4 class="author">Bruno Castanho Silva and Mario Fiorini</h4>
-<h4 class="date">2023-05-22</h4>
+<h4 class="date">2023-05-23</h4>
 
 </div>
 
@@ -366,7 +366,8 @@ anymore with <code>install_packages</code> or
 <code>install_github</code> without a few steps first.</p>
 <p>Since there’s currently no other way of running the Synthetic Control
 Model in R without <code>Synth</code>, to install it from the archive
-you need to follow these steps:</p>
+you need to follow these steps. <strong>They are all necessary: if you
+skip e.g. Step 4, then Step 5 will not work!</strong></p>
 <div id="step-1---check-whether-you-can-download-the-packages" class="section level1">
 <h1>Step 1 - Check whether you can download the packages</h1>
 <p>First we check whether the issue applies to your R version. Try the
@@ -378,13 +379,46 @@ install.packages(&#39;SCtools&#39;)</code></pre>
 </div>
 <div id="step-2---installing-gfortran" class="section level1">
 <h1>Step 2 - Installing gfortran</h1>
-<p>One key part is the GNU Fortran compiler. So we will install this
-first. Go to <a href="https://fortran-lang.org/en/learn/os_setup/install_gfortran/" class="uri">https://fortran-lang.org/en/learn/os_setup/install_gfortran/</a>
-and follow the instruction for your operating system.</p>
-<p>If you’re on a Mac and have R 4.3.0 or higher, you need to use
-gfortran12.2, available from this link: <a href="https://mac.r-project.org/tools/gfortran-12.2-universal.pkg" class="uri">https://mac.r-project.org/tools/gfortran-12.2-universal.pkg</a>.
-Other versions of gfortran will return an error when installing
-LowRankQP.</p>
+<p>This is the most complicated part, as it depends on your computer,
+OS, and version of R. First of all, <strong>make sure your version of R
+is at least 4.3.0</strong>.</p>
+<p>Follow the step below depending on your OS (MacOS or Windows) and,
+among Mac users, processor type. If in doubt, run the following code and
+it will tell you your R version, platform, and OS.</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<div id="step-2.1---mac-users-with-intel-processors" class="section level2">
+<h2>Step 2.1 - Mac users with Intel processors</h2>
+<p>You need to download and install gfortran12.2, available from this
+link: <a href="https://mac.r-project.org/tools/gfortran-12.2-universal.pkg" class="uri">https://mac.r-project.org/tools/gfortran-12.2-universal.pkg</a>.</p>
+</div>
+<div id="step-2.2-windows-users" class="section level2">
+<h2>Step 2.2 Windows users:</h2>
+<p>You will need <code>Rtools</code> first. Go to <a href="https://cran.r-project.org/bin/windows/Rtools/rtools43/rtools.html" class="uri">https://cran.r-project.org/bin/windows/Rtools/rtools43/rtools.html</a>
+and download from the link <em>Rtools43 installer</em>.</p>
+<p>Afterwards, go to <a href="http://www.equation.com/servlet/equation.cmd?fa=fortran" class="uri">http://www.equation.com/servlet/equation.cmd?fa=fortran</a>
+and install version 12.2.0 for the right system in your case (32 or
+64).</p>
+</div>
+<div id="step-2.3-mac-users-with-m1m2-processors" class="section level2">
+<h2>Step 2.3 Mac users with M1/M2 processors</h2>
+<p>First you will need to install the latest version of gdd which
+includes gfortran with <code>Homebrew</code>. Open a Terminal window
+(Press Command + Space Bar on your Mac keyboard and type in “Terminal”)
+and run the following code: <code>brew install gcc</code>.</p>
+<p>If this returns an error (<code>command not found: brew</code>), then
+install homebrew first: <a href="https://brew.sh/" class="uri">https://brew.sh/</a>, make sure to add it to your PATH (last
+line in the installation of Homebrew) and rerun the line above.</p>
+<p>Then create a file <code>~/.R/Makevars</code> by running the
+following in your R console:</p>
+<pre class="r"><code>dir.create(&#39;~/.R&#39;)
+file.create(&#39;~/.R/Makevars&#39;)</code></pre>
+<p>Open this <code>Makevars</code> file (you can open it by searching
+your files, and opening in any text editor or even RStudio itself),
+paste the following three lines, and save:</p>
+<pre><code>FC = /opt/homebrew/Cellar/gcc/13.1.0/bin/gfortran
+F77 = /opt/homebrew/Cellar/gcc/13.1.0/bin/gfortran
+FLIBS = -L/opt/homebrew/Cellar/gcc/13.1.0/lib/gcc/13</code></pre>
+</div>
 <div id="step-3---installing-lowrankqp" class="section level2">
 <h2>Step 3 - Installing LowRankQP</h2>
 <p>Download and install latest version of LowRankQP from the archive,
